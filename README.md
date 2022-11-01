@@ -24,5 +24,5 @@
     $ xdg-open http://localhost:8080/ 
 
 ## Open Endpoints
-* [Login](q.md) : `GET /q?transactionid=&terminalid=&status=&paymenttype=&datepost=&paymentnarrative=коштів&quantity=10&pagenum=1`
-* [Login](u.md) : `POST /u`
+* [Search](q.md) : `GET /q?transactionid=&terminalid=&status=&paymenttype=&datepost=&paymentnarrative=коштів&quantity=10&pagenum=1`
+* [Upload](u.md) : `POST /u`
