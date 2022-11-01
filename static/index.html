@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> CSV import </title>
+  <style>
+  #antiwrap {
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+  form>* {
+   display: inline-block;
+  }
+  form>div>input[type="text"] { 
+   display: block;
+  }
+
+  </style>
+</head>
+
+<body>
+<div id="antiwrap"> 
+  <form action="u" method="POST" enctype="multipart/form-data">
+    <input type="file" name="uploadedFile" accept=".csv">
+    <input type="submit" value="Upload">
+  </form>
+
+  <hr>
+  <form action="q" method="GET">
+    <div>
+      <input type="text" name="transactionid" placeholder="transactionid" autocomplete="on">
+      <input type="text" name="terminalid" placeholder="terminalid" autocomplete="on">
+      <input type="text" name="status" placeholder="status" autocomplete="on">
+      <input type="text" name="paymenttype" placeholder="paymenttype" autocomplete="on">
+      <input type="text" name="datepost" placeholder="datepost" autocomplete="on">
+      <input type="text" name="paymentnarrative" placeholder="paymentnarrative" autocomplete="on">
+    </div>
+
+    <select name="quantity" id="quantity">
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="50">50</option>
+    </select> 
+    <input type="number" name="pagenum" value="1" min="1" style="width: 4em" required>
+    <input type="submit" value="Search">
+  </form>
+</div>
+<hr>
+<div style="font-family: monospace;">
+  <br/>
+  transactionid     = ""<br/>
+  terminalid        = "id1,id2, ..."<br/>
+  status            = "accepted/denied"<br/>
+  paymenttype       = "cash/card"<br/>
+  datepost          = "xxxx-xx-xx/xxxx-xx-xx" (<from>/<to>, ISO 8601)<br/>
+  paymentnarrative  = ""
+</div>
+</body>
+</html>

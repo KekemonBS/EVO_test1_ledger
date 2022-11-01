@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+
+  ledger:
+    container_name: ledger
+    build:
+      context: .
+      dockerfile: ./cmd/ledger/Dockerfile
+    ports:
+      - 8080:8080
+    networks:
+      - shared-network
+    depends_on:  
+      - postgres
+
+  postgres:
+    image: postgres
+    container_name: postgres
+    restart: always
+    volumes:
+      - "data:/var/lib/postgresql/data"
+    ports:
+      - 5432:5432
+    networks:
+      - shared-network
+    environment:
+      DB_HOST: postgresql
+      POSTGRES_PASSWORD: test
+      POSTGRES_USER: test
+      POSTGRES_DB: ledgerDB
+
+volumes:
+  data:
+
+networks:
+  shared-network:
+    driver: bridge
